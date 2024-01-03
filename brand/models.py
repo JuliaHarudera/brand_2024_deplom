@@ -43,3 +43,13 @@ class Product(models.Model):
             models.UniqueConstraint(fields=['order', 'category'], name='unique_order_per_each_category'),
         ]
         unique_together = ['id', 'slug']
+
+
+class Gallery(models.Model):
+    photo = models.ImageField(upload_to='product_images/')
+    is_visible = models.BooleanField(default=True)
+    name = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return f"{self.name}"
+

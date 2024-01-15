@@ -1,0 +1,22 @@
+<section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-uppercase section-heading">Services</h2>
+                    <h3 class="text-muted section-subheading">Lorem ipsum dolor sit amet consectetur</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                {% for category in categories %}
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <a href="{% url 'category-detail' category.id %}"><h4 class="section-heading">{{ category.name }}</h4></a>
+                        <p class="text-muted">{{ category.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</section>

@@ -3,14 +3,17 @@ from .models import Category, Product
 
 
 def main(request):
-    category = Category.objects.filter(is_visible=True)
-    return render(request, 'index.html')
+    categories = Category.objects.filter(is_visible=True)
+    context = {'categories': categories}
+    return render(request, 'brand_main.html', context=context)
 
 
-def bubbleSort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+def category_detail(request, category_id):
+    products = Product.objects.filter(category_id=category_id)
+    context = {'products': products}
+    return render(request, 'products.html', context=context)
+
+
+
+
 

@@ -28,7 +28,7 @@ class Product(models.Model):
     brands = models.CharField(max_length=255, unique=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     photo = models.ImageField(upload_to='product_images/', blank=True)
-    sizes = models.CharField(max_length=50, help_text='Comma-separated list of available sizes')
+    sizes = models.CharField(max_length=50, help_text='Comma-separated list of available sizes',blank=True)
     quantity_available = models.PositiveIntegerField()
     order = models.PositiveSmallIntegerField()
     is_visible = models.BooleanField(default=True)
@@ -52,4 +52,6 @@ class Gallery(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+
 

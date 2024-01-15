@@ -1,0 +1,54 @@
+<section class="bg-light" id="portfolio">
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-uppercase section-heading">Portfolio</h2>
+                    <h3 class="text-muted section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                {% for item in products %}
+                    <div class="col-sm-6 col-md-4 portfolio-item">
+                        <a class="portfolio-link" href="#portfolioModal{{ item.pk }}" data-bs-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                        </div>
+                            <img class="img-fluid" src="{{ item.photo.url }}">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>{{ item.name }}</h4>
+                        <p class="text-muted">{{ item.description }}</p>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</section>
+
+
+{% for item in products %}
+    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal{{ item.pk }}">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <h2 class="text-uppercase">{{ item.name }}</h2>
+                                <p class="text-muted item-intro">{{ item.brand }}</p>
+                                <img class="img-fluid d-block mx-auto" src="{{ item.photo.url }}">
+                                <p>{{ item.description }}</p>
+                                <ul class="list-unstyled">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Threads</li>
+                                    <li>Category: {{ item.category.name }}</li>
+                                </ul><button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}

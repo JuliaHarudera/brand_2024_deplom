@@ -17,3 +17,6 @@ def category_detail(request, category_id):
 
 
 
+
+
+

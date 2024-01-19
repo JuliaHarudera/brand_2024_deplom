@@ -38,8 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'ckeditor',
+
+    'main_app.apps.MainAppConfig',
     'brand.apps.BrandConfig'
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 150,
+        'width': 800,
+        'removePlugins': 'stylesheetparser',
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+#                'main_app.context_processors.MainMenuItems'
             ],
         },
     },

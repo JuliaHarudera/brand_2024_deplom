@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from brand_2024_deplom import settings
-from brand.views import main, category_detail
+from brand.views import category_detail
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main),
+    path('', include("brand.urls")),
     path('category/<int:category_id>/', category_detail, name='category-detail'),
 ]
 

@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Category, Product, Gallery
+from .models import Category, Product, Gallery,ContactUS
 from django.utils.safestring import mark_safe
 
 
+admin.site.register(ContactUS)
 admin.site.register(Category)
 admin.site.register(Gallery)
 

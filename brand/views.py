@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Product
 from django.views.generic import TemplateView
 from .forms import ContactUsForm
+from django.contrib import messages
 
 # def main(request):
 #    categories = Category.objects.filter(is_visible=True)
@@ -27,4 +28,18 @@ class IndexPage(TemplateView):
 
     def post(self, request, *args, **kwargs):
         contactus_form = ContactUsForm(request.POST)
+
+        if contactus_form.is_valid():
+            contactus_form.save()
+            messages.success(request, 'Contact done')
+            return redirect('brand:home')
+
+        context = self.get_context_data(**kwargs)
+        context['contactus_form'] = ContactUsForm()
+        messages.error(request, 'errors contact form')
+        return render(request, 'brand_main.html', context=context)
+
+
+
+
 

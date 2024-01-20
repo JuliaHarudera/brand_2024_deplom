@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Gallery,ContactUS
+from .models import Category, Product, Gallery, ContactUS
 from django.utils.safestring import mark_safe
 
 

@@ -20,11 +20,17 @@ from django.urls import path
 from brand_2024_deplom import settings
 from brand.views import category_detail
 from django.urls import include
+from account.views import RegisterUser, LoginUser, logout_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("brand.urls")),
     path('category/<int:category_id>/', category_detail, name='category-detail'),
+    path('manager/', include('manager.urls')),
+
+    path('registration/', RegisterUser.as_view(), name='registration'),
+    path('login/', LoginUser.as_view(), name='login'),
+    path('logout/', logout_user, name='logout'),
 ]
 
 if settings.DEBUG:

@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-lo4w+u*rsgcc!4d*dg!vuhqcmfs^g9+!))jz57t_)p@51&p#@y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     'manager.apps.ManagerConfig',
 ]
 
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
@@ -57,6 +57,7 @@ CKEDITOR_CONFIGS = {
 }
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

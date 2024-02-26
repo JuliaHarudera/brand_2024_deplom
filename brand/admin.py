@@ -18,4 +18,6 @@ class ProductAdmin(admin.ModelAdmin):
             return mark_safe(f"<img src='{obj.photo.url}' width=50>")
 
     photo_src_tag.short_description = 'Product photo'
-
+"""
+понель для создания наполнения сайта 
+"""
